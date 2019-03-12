@@ -10,6 +10,10 @@ import Test1 from './components/about/test1'
 import Test2 from './components/about/test2'
 import Test3 from './components/about/test3'
 
+//三級路由
+import Test4 from './components/about/test4'
+import Test5 from './components/about/test5'
+
 export const routes=[{path:"/",
   //组件复用
   components:{default:Home,"test1":Test1,"test2":Test2
@@ -17,7 +21,9 @@ export const routes=[{path:"/",
 }}
   ,{path:"/menu",name:"menuLink",component:Menu}
   ,{path:"/about",component:About,redirect:"/about/test1",children:[
-      {path:"/about/test1",component:Test1}
+      {path:"/about/test1",component:Test1,children:[{path:"/about/test1/test4",component:Test4}
+      ,{path:"/about/test1/test5",component:Test5}
+      ]}
       ,{path:"/about/test2",component:Test2}
       ,{path:"/about/test3",component:Test3}
     ]}
